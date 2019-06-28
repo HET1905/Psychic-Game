@@ -1,3 +1,7 @@
+body{
+    background: rgb(255, 204, 208);
+}
+
 span{
     font-weight: bold;
 }

@@ -22,16 +22,22 @@ function getRandomChar() {
     return String.fromCharCode(Math.floor(Math.random() * (max - min)) + min); //The maximum is exclusive and the minimum is inclusive
 }
 var compGuess = getRandomChar();
-alert("Comp : " + compGuess);
+//alert("Comp : " + compGuess);
 
 
 txtGuessLeft.textContent = guessLeft;
 
 document.onkeyup = function (event) {
+    if (((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123))){
+
+    
     if (event.key.toLowerCase() === compGuess) {
         win = win + 1;
         txtWin.textContent = win;
         guessLeft = 9;
+        txtGuessLeft.textContent =guessLeft;
+        allGuess=[];
+        txtAllGuess.textContent="";
     } else {
 
         guessLeft = guessLeft - 1;
@@ -48,5 +54,8 @@ document.onkeyup = function (event) {
         }
 
     }
-
+    }
+    else{
+        alert("only Charactes allowed !!!");
+    }
 }
